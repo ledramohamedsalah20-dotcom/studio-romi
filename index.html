@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Studio Romi | Institut de beauté à Birkhadem</title>
+
+  <meta
+    name="description"
+    content="Studio Romi, institut de beauté à Birkhadem. Découvrez notre univers et prenez rendez-vous directement via WhatsApp."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #f8f3ef;
+      --bg-soft: #efe3dc;
+      --white: #ffffff;
+      --text: #2d2522;
+      --text-soft: #766963;
+      --rose: #b98a7e;
+      --rose-dark: #95695e;
+      --gold: #ba9870;
+      --border: rgba(45, 37, 34, 0.12);
+      --shadow: 0 20px 60px rgba(55, 38, 31, 0.10);
+      --radius: 28px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      background: rgba(248, 243, 239, 0.86);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: 0.3s ease;
+    }
+
+    header.scrolled {
+      border-color: var(--border);
+      box-shadow: 0 8px 30px rgba(50, 35, 30, 0.05);
+    }
+
+    nav {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-main {
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .logo-small {
+      margin-top: 5px;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rose-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a:not(.nav-cta) {
+      position: relative;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 0;
+      background: var(--rose-dark);
+      bottom: -7px;
+      left: 0;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--text);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 100px;
+      transition: 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--rose-dark);
+      transform: translateY(-2px);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      padding-top: 125px;
+      padding-bottom: 70px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.92fr;
+      align-items: center;
+      gap: 75px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--rose-dark);
+      margin-bottom: 26px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 40px;
+      height: 1px;
+      background: var(--rose-dark);
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: clamp(58px, 7vw, 100px);
+      line-height: 0.94;
+      letter-spacing: -4px;
+      max-width: 720px;
+    }
+
+    h1 em {
+      color: var(--rose-dark);
+      font-weight: 500;
+    }
+
+    .hero-text {
+      max-width: 550px;
+      font-size: 17px;
+      color: var(--text-soft);
+      margin: 32px 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 25px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: var(--rose-dark);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: white;
+    }
+
+    .hero-rating {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 35px;
+      color: var(--text-soft);
+      font-size: 13px;
+    }
+
+    .stars {
+      color: #aa7c48;
+      letter-spacing: 2px;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-image img {
+      height: 650px;
+      border-radius: 220px 220px 20px 20px;
+      filter: saturate(0.8);
+      box-shadow: var(--shadow);
+    }
+
+    .image-badge {
+      position: absolute;
+      left: -45px;
+      bottom: 55px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: 17px;
+      box-shadow: var(--shadow);
+    }
+
+    /* INTRO */
+
+    .intro {
+      padding: 120px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 100px;
+    }
+
+    .section-number {
+      color: var(--rose-dark);
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .intro h2,
+    .services h2,
+    .experience h2,
+    .contact h2 {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+    }
+
+    .intro h2 span {
+      color: var(--rose-dark);
+      font-style: italic;
+    }
+
+    .intro-description {
+      margin-top: 28px;
+      font-size: 17px;
+      max-width: 700px;
+      color: var(--text-soft);
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: #2f2825;
+      color: white;
+      padding: 120px 0;
+    }
+
+    .services-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .services-top p {
+      max-width: 420px;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 42px 34px;
+      min-height: 330px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      background: #3b312d;
+      transform: translateY(-8px);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.22);
+      font-family: "Playfair Display", serif;
+      color: #ddc5b5;
+      font-size: 20px;
+    }
+
+    .service-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+    }
+
+    /* EXPERIENCE */
+
+    .experience {
+      padding: 130px 0;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .experience-images {
+      display: grid;
+      grid-template-columns: 1fr 0.75fr;
+      gap: 15px;
+      align-items: end;
+    }
+
+    .experience-images img:first-child {
+      height: 570px;
+      border-radius: 180px 180px 20px 20px;
+    }
+
+    .experience-images img:last-child {
+      height: 380px;
+      border-radius: 20px 120px 20px 20px;
+    }
+
+    .experience-copy p {
+      color: var(--text-soft);
+      margin: 25px 0 35px;
+      font-size: 16px;
+    }
+
+    .points {
+      display: grid;
+      gap: 22px;
+    }
+
+    .point {
+      display: flex;
+      gap: 18px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .point-number {
+      color: var(--rose-dark);
+      font-family: "Playfair Display", serif;
+      font-size: 22px;
+    }
+
+    .point h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .point p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* REVIEWS */
+
+    .reviews {
+      padding: 100px 0;
+      background: var(--bg-soft);
+      text-align: center;
+    }
+
+    .reviews-score {
+      font-family: "Playfair Display", serif;
+      font-size: 90px;
+      line-height: 1;
+      margin: 25px 0 12px;
+    }
+
+    .reviews-stars {
+      color: #a77e50;
+      letter-spacing: 7px;
+      font-size: 19px;
+    }
+
+    .reviews p {
+      margin-top: 14px;
+      color: var(--text-soft);
+    }
+
+    /* CONTACT */
+
+    .contact {
+      padding: 130px 0;
+    }
+
+    .contact-box {
+      position: relative;
+      background: var(--text);
+      color: white;
+      border-radius: 40px;
+      overflow: hidden;
+      padding: 85px;
+      display: grid;
+      grid-template-columns: 1fr 0.75fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .contact-box::after {
+      content: "R";
+      position: absolute;
+      right: -30px;
+      top: -120px;
+      font-family: "Playfair Display", serif;
+      font-size: 500px;
+      line-height: 1;
+      color: rgba(255,255,255,0.025);
+    }
+
+    .contact p {
+      color: rgba(255,255,255,0.62);
+      margin: 22px 0 30px;
+      max-width: 570px;
+    }
+
+    .contact-details {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 15px;
+    }
+
+    .contact-item {
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 18px;
+      padding: 20px;
+    }
+
+    .contact-item small {
+      display: block;
+      color: rgba(255,255,255,0.45);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+      font-size: 9px;
+    }
+
+    .whatsapp {
+      background: white;
+      color: var(--text);
+    }
+
+    .whatsapp:hover {
+      background: #eee4df;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 45px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--text-soft);
+      font-size: 13px;
+    }
+
+    .footer-name {
+      font-family: "Playfair Display", serif;
+      color: var(--text);
+      font-size: 20px;
+    }
+
+    /* FLOATING WHATSAPP */
+
+    .floating-wa {
+      position: fixed;
+      z-index: 999;
+      right: 22px;
+      bottom: 22px;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #1f1b19;
+      color: white;
+      box-shadow: 0 10px 35px rgba(0,0,0,.18);
+      font-size: 24px;
+      transition: .3s;
+    }
+
+    .floating-wa:hover {
+      transform: translateY(-5px) scale(1.03);
+      background: var(--rose-dark);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+
+      .nav-links {
+        position: fixed;
+        top: 82px;
+        left: 20px;
+        right: 20px;
+        padding: 30px;
+        border-radius: 20px;
+        background: #fff;
+        box-shadow: var(--shadow);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero-grid,
+      .intro-grid,
+      .experience-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 50px;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-image {
+        width: min(90%, 520px);
+        margin: auto;
+      }
+
+      .hero-image img {
+        height: 580px;
+      }
+
+      .image-badge {
+        left: -20px;
+      }
+
+      .intro-grid {
+        gap: 35px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .experience-grid {
+        gap: 60px;
+      }
+
+      .contact-box {
+        padding: 55px 35px;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      nav {
+        height: 72px;
+      }
+
+      .logo-main {
+        font-size: 25px;
+      }
+
+      .logo-small {
+        font-size: 7px;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+
+      h1 {
+        font-size: 55px;
+      }
+
+      .hero-image img {
+        height: 480px;
+      }
+
+      .image-badge {
+        width: 115px;
+        height: 115px;
+        font-size: 14px;
+      }
+
+      .intro,
+      .services,
+      .experience,
+      .contact {
+        padding: 85px 0;
+      }
+
+      .experience-images img:first-child {
+        height: 440px;
+      }
+
+      .experience-images img:last-child {
+        height: 290px;
+      }
+
+      .contact-box {
+        padding: 45px 25px;
+      }
+
+      .footer-grid {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header id="header">
+  <nav class="container">
+
+    <a href="#" class="logo">
+      <span class="logo-main">Studio Romi</span>
+      <span class="logo-small">Beauty Studio</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#studio">Le Studio</a>
+      <a href="#prestations">Prestations</a>
+      <a href="#experience">Expérience</a>
+      <a href="#contact">Contact</a>
+
+      <a
+        class="nav-cta"
+        href="https://wa.me/213561204200?text=Bonjour%20Studio%20Romi%2C%20je%20souhaite%20prendre%20rendez-vous."
+        target="_blank"
+      >
+        Prendre rendez-vous
+      </a>
+    </div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      ☰
+    </button>
+
+  </nav>
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          Institut de beauté • Birkhadem
+        </div>
+
+        <h1>
+          Votre beauté,<br>
+          notre <em>signature.</em>
+        </h1>
+
+        <p class="hero-text">
+          Bienvenue chez Studio Romi, un espace pensé pour vous offrir
+          un moment rien qu'à vous et révéler votre beauté avec élégance,
+          attention et savoir-faire.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/213561204200?text=Bonjour%20Studio%20Romi%2C%20je%20souhaite%20prendre%20rendez-vous."
+            target="_blank"
+          >
+            Réserver via WhatsApp →
+          </a>
+
+          <a href="#studio" class="btn btn-secondary">
+            Découvrir le studio
+          </a>
+
+        </div>
+
+        <div class="hero-rating">
+          <span class="stars">★★★★★</span>
+          <span><strong>4,6/5</strong> • 21 avis Google</span>
+        </div>
+
+      </div>
+
+      <div class="hero-image">
+
+        <img
+          src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1000&q=85"
+          alt="Institut de beauté élégant"
+        >
+
+        <div class="image-badge">
+          Beauty<br>
+          & self-care
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STUDIO -->
+
+  <section class="intro" id="studio">
+
+    <div class="container intro-grid">
+
+      <div>
+        <span class="section-number">01 — Studio Romi</span>
+      </div>
+
+      <div>
+
+        <h2>
+          Plus qu'un rendez-vous,<br>
+          un <span>moment pour vous.</span>
+        </h2>
+
+        <p class="intro-description">
+          Chez Studio Romi, chaque visite est pensée comme une parenthèse
+          beauté. Un cadre chaleureux, une attention personnalisée et une
+          expérience qui vous permet de vous sentir belle et confiante.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRESTATIONS -->
+
+  <section class="services" id="prestations">
+
+    <div class="container">
+
+      <div class="services-top">
+
+        <div>
+          <div class="eyebrow" style="color:#d7b5a7">
+            Nos prestations
+          </div>
+
+          <h2>
+            Prenez soin<br>
+            de vous.
+          </h2>
+        </div>
+
+        <p>
+          Une sélection de prestations beauté et de soins adaptés à vos
+          envies. Contactez directement le studio pour connaître les
+          disponibilités et prestations proposées.
+        </p>
+
+      </div>
+
+
+      <div class="service-grid">
+
+        <article class="service-card">
+
+          <div class="service-icon">01</div>
+
+          <div>
+            <h3>Mise en beauté</h3>
+            <p>
+              Des prestations personnalisées pour révéler votre style
+              et mettre en valeur votre beauté naturelle.
+            </p>
+          </div>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-icon">02</div>
+
+          <div>
+            <h3>Soins & beauté</h3>
+            <p>
+              Un moment consacré à vous, dans un environnement
+              calme et agréable.
+            </p>
+          </div>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <div class="service-icon">03</div>
+
+          <div>
+            <h3>Sur rendez-vous</h3>
+            <p>
+              Contactez facilement Studio Romi sur WhatsApp pour
+              demander une prestation et choisir votre créneau.
+            </p>
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- EXPERIENCE -->
+
+  <section class="experience" id="experience">
+
+    <div class="container experience-grid">
+
+      <div class="experience-images">
+
+        <img
+          src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85"
+          alt="Expérience beauté"
+        >
+
+        <img
+          src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85"
+          alt="Produits de beauté"
+        >
+
+      </div>
+
+
+      <div class="experience-copy">
+
+        <span class="section-number">
+          02 — L'expérience
+        </span>
+
+        <h2 style="margin-top:20px;">
+          Chaque détail<br>
+          compte.
+        </h2>
+
+        <p>
+          Parce qu'un rendez-vous beauté est aussi une expérience,
+          Studio Romi place l'écoute, le confort et l'attention au
+          centre de chaque visite.
+        </p>
+
+
+        <div class="points">
+
+          <div class="point">
+            <span class="point-number">01</span>
+
+            <div>
+              <h3>Accueil personnalisé</h3>
+              <p>Une approche adaptée à vos envies et vos besoins.</p>
+            </div>
+          </div>
+
+
+          <div class="point">
+            <span class="point-number">02</span>
+
+            <div>
+              <h3>Un univers élégant</h3>
+              <p>Un espace pensé pour votre confort et votre bien-être.</p>
+            </div>
+          </div>
+
+
+          <div class="point">
+            <span class="point-number">03</span>
+
+            <div>
+              <h3>Réservation simple</h3>
+              <p>Un contact direct via WhatsApp en quelques secondes.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REVIEWS -->
+
+  <section class="reviews">
+
+    <div class="container">
+
+      <span class="section-number">
+        Avis Google
+      </span>
+
+      <div class="reviews-score">
+        4,6
+      </div>
+
+      <div class="reviews-stars">
+        ★★★★★
+      </div>
+
+      <p>
+        Une note basée sur 21 avis clients sur Google.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section class="contact" id="contact">
+
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div>
+
+          <span
+            class="section-number"
+            style="color:#d8b5a6"
+          >
+            Votre prochain rendez-vous
+          </span>
+
+          <h2 style="margin-top:20px;">
+            Prenez un moment<br>
+            pour vous.
+          </h2>
+
+          <p>
+            Contactez Studio Romi directement sur WhatsApp pour demander
+            les prestations disponibles et réserver votre prochain rendez-vous.
+          </p>
+
+          <a
+            class="btn whatsapp"
+            target="_blank"
+            href="https://wa.me/213561204200?text=Bonjour%20Studio%20Romi%2C%20je%20souhaite%20avoir%20plus%20d'informations%20sur%20vos%20prestations%20et%20prendre%20rendez-vous."
+          >
+            WhatsApp • +213 561 20 42 00
+          </a>
+
+        </div>
+
+
+        <div class="contact-details">
+
+          <a
+            class="contact-item"
+            href="https://maps.app.goo.gl/tpJLVPywatC59sZc7"
+            target="_blank"
+          >
+            <small>Adresse</small>
+            Birkhadem, Alger ↗
+          </a>
+
+          <a
+            class="contact-item"
+            href="tel:+213561204200"
+          >
+            <small>Téléphone</small>
+            +213 561 20 42 00
+          </a>
+
+          <a
+            class="contact-item"
+            href="https://wa.me/213561204200"
+            target="_blank"
+          >
+            <small>Réservation</small>
+            WhatsApp ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="container footer-grid">
+
+    <div class="footer-name">
+      Studio Romi
+    </div>
+
+    <div>
+      Institut de beauté • Birkhadem, Alger
+    </div>
+
+    <div>
+      © <span id="year"></span> Studio Romi
+    </div>
+
+  </div>
+
+</footer>
+
+
+<a
+  class="floating-wa"
+  href="https://wa.me/213561204200?text=Bonjour%20Studio%20Romi%2C%20je%20souhaite%20prendre%20rendez-vous."
+  target="_blank"
+  aria-label="WhatsApp"
+>
+  ✦
+</a>
+
+
+<script>
+
+  const header = document.getElementById("header");
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 20);
+  });
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
